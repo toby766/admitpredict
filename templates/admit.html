@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: relative;
+            border-radius: 8px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .col {
+            float: left;
+            width: 50%;
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .vl {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            border: 2px solid #007bff;
+            height: 490px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:hover,
+        input:focus {
+            border-color: #007bff;
+        }
+
+        input[type=number] {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        input[type=submit] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type=submit]:hover {
+            background-color: #0056b3;
+        }
+
+        .bottom-container {
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 0 0 8px 8px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 650px) {
+            .col {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            .vl {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>GradAdmit Predictor</h1>
+        <form action="{{url_for('predict')}}" method="post" class="row">
+            
+
+
+            <div class="col">
+                <label for="greScore">GRE Score (out of 340):</label>
+                <input type="number" name="GRE Score" placeholder="GRE Score" required="required" min="0" max="340" style="width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #007bff; border-radius: 4px; font-size: 16px; transition: border-color 0.3s; box-sizing: border-box;" />
+                <label for="toeflScore">TOEFL Score (out of 120):</label>
+                <input type="number" name="TOEFL Score" placeholder="TOEFL Score" required="required" min="0" max="120" />
+                <label for="unir">University Rating (out of 5):</label>
+                <input type="number" name="University Rating" placeholder="University Rating" required="required" min="1" max="5" />
+                <label for="unir">Statement of Purpose (out of 5):</label>
+
+                <input type="number" name="SOP" placeholder="SOP" required="required" onkeypress="return check(event,value)" step="0.1" min="1" max="5" />
+                <label for="unir">Letter of Recommendation Strength (out of 5):</label>
+
+                <input type="number" name="LOR" placeholder="LOR" required="required" onkeypress="return check(event,value)" step="0.1" min="1" max="5" />
+                <label for="unir"> CGPA (out of 10):</label>
+
+                <input type="number" name="CGPA" placeholder="CGPA" required="required" onkeypress="return check(event,value)" step="0.01" min="1" max="10" />
+                <label for="unir">Research Experience (either 0 or 1):</label>
+
+                <input type="number" name="Research" placeholder="Research" required="required" min="0" max="1" />
+
+                <input type="submit" value="Predict" />
+                <h4 style="text-align: center; color: #3836b4; margin-top: 24px; font-size: 15px;">{{prediction_text}}</h4>
+
+            </div>
+        </form>
+        
+        </div>
+    </div>
+
+</body>
+
+</html>
