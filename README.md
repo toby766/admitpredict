@@ -21,7 +21,7 @@ Fork this repository
 Clone the project
 
 ```bash
-  git clone https://github.com/toby766/admitpredict.git
+  git clone https://github.com/your-username/admitpredict.git
 ```
 
 Go to the project directory
