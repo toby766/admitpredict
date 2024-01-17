@@ -16,28 +16,29 @@ Python, HTML, CSS, Flask
 
 
 ## Run Locally
+Fork this repository
 
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/toby766/admitpredict.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd admitpredict
 ```
 
 Install dependencies
 
 ```bash
-  npm install
+  pip install -r requirements.tx
 ```
 
-Start the server
+Run on browser
 
 ```bash
-  npm run start
+  python app.py
 ```
 
