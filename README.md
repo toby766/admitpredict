@@ -33,7 +33,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  pip install -r requirements.tx
+  pip install -r requirements.txt
 ```
 
 Run on browser
